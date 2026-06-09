@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Thank You | Godrej Crown Residences — We'll Be In Touch Soon!</title>
+  <meta name="description" content="Thank you for your interest in Godrej Crown Residences. Our team will contact you shortly with exclusive pre-launch pricing.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #1A1A1A;
+      --black-dark: #000000;
+      --gold: #C9A84C;
+      --gold-light: #E2C277;
+      --gold-dark: #A8863A;
+      --white: #FFFFFF;
+      --off-white: #FBF8F3;
+      --cream: #F5EFE0;
+      --gray-100: #F0F0F0;
+      --gray-400: #9E9E9E;
+      --gray-600: #5C5C5C;
+      --green: #25D366;
+      --font: 'Poppins', sans-serif;
+      --radius: 16px;
+      --shadow-gold: 0 8px 32px rgba(201,168,76,0.25);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--black-dark);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* === HEADER === */
+    .ty-header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .ty-header img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+    .ty-header-fallback {
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .ty-header-fallback span { color: var(--gold); }
+
+    /* === HERO THANK YOU === */
+    .ty-hero {
+      position: relative;
+      padding: 60px 20px 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .ty-hero::before {
+      content: '';
+      position: absolute;
+      top: -150px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Animated checkmark */
+    .check-circle {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 0 0 0 rgba(201,168,76,0.4);
+      animation: popIn 0.6s ease, pulse-ring 2s ease 0.6s infinite;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+      70%  { box-shadow: 0 0 0 20px rgba(201,168,76,0); }
+      100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+    }
+    .check-circle svg {
+      width: 44px; height: 44px;
+      fill: none;
+      stroke: var(--black-dark);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: drawCheck 0.5s ease 0.4s forwards;
+    }
+    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
+    .ty-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 100px;
+      padding: 5px 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .ty-badge-dot {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    .ty-title {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .ty-title span { color: var(--gold); }
+    .ty-subtitle {
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    /* Callback timer */
+    .callback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 14px 24px;
+      margin-bottom: 36px;
+    }
+    .callback-icon { font-size: 1.5rem; }
+    .callback-text { text-align: left; }
+    .callback-text strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+    .callback-text span {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* CTA buttons */
+    .ty-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .ty-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .ty-btn-call {
+      background: var(--white);
+      color: var(--black);
+    }
+    .ty-btn-call:hover { background: var(--cream); transform: translateY(-2px); }
+    .ty-btn-whatsapp {
+      background: var(--green);
+      color: var(--white);
+    }
+    .ty-btn-whatsapp:hover { background: #20BD5B; transform: translateY(-2px); }
+
+    /* === DIVIDER === */
+    .gold-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0;
+    }
+
+    /* === VIDEO SECTION === */
+    .video-section {
+      padding: 56px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .video-label {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .video-title {
+      text-align: center;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .video-subtitle {
+      text-align: center;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 32px;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    /* Placeholder shown until video URL is added */
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+      cursor: pointer;
+    }
+    .video-placeholder .play-btn {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-gold);
+      transition: var(--transition);
+    }
+    .video-placeholder:hover .play-btn { transform: scale(1.1); }
+    .video-placeholder .play-btn svg {
+      width: 28px; height: 28px;
+      fill: var(--black);
+      margin-left: 4px;
+    }
+    .video-placeholder p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      max-width: 280px;
+    }
+    .video-placeholder strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    /* === WHAT HAPPENS NEXT === */
+    .next-section {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 50px 20px;
+    }
+    .next-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .next-title {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .next-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .next-step {
+      text-align: center;
+      padding: 24px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .next-step:hover {
+      background: rgba(201,168,76,0.07);
+      border-color: rgba(201,168,76,0.25);
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--black);
+      margin: 0 auto 12px;
+    }
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    /* === SHARE SECTION === */
+    .share-section {
+      padding: 44px 20px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .share-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .share-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+    .share-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+    }
+    .share-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    /* === FOOTER === */
+    .ty-footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .ty-footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .ty-footer a:hover { color: var(--gold); }
+    .ty-footer p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* === CONFETTI CANVAS === */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 640px) {
+      .ty-ctas { flex-direction: column; align-items: center; }
+      .ty-btn { width: 100%; max-width: 320px; justify-content: center; }
+      .next-steps { grid-template-columns: 1fr; gap: 12px; }
+      .callback-badge { flex-direction: column; text-align: center; gap: 6px; }
+      .callback-text { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- HEADER -->
+<header class="ty-header">
+  <img src="images/godrej-crown-logo.svg"
+       alt="Godrej Crown Residences"
+       onerror="this.style.display='none';document.getElementById('logo-text').style.display='block'">
+  <div id="logo-text" class="ty-header-fallback" style="display:none;">
+    Godrej <span>Crown Residences</span>
+  </div>
+</header>
+
+<!-- HERO THANK YOU -->
+<section class="ty-hero">
+  <div class="check-circle">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+
+  <div class="ty-badge">
+    <div class="ty-badge-dot"></div>
+    Enquiry Received Successfully
+  </div>
+
+  <h1 class="ty-title">Thank You! <span>🏠</span><br>We'll Be In Touch Soon</h1>
+  <p class="ty-subtitle">
+    Your interest in <strong style="color:var(--gold);">Godrej Crown Residences</strong> has been registered.
+    Our property advisor will call you within <strong style="color:var(--white);">30 minutes</strong> with exclusive pre-launch pricing and details.
+  </p>
+
+  <div class="callback-badge">
+    <div class="callback-icon">📞</div>
+    <div class="callback-text">
+      <strong>Expect a call within 30 minutes</strong>
+      <span>Mon – Sun · 10:00 AM to 7:00 PM IST</span>
+    </div>
+  </div>
+
+  <div class="ty-ctas">
+    <a href="tel:+918076178189" class="ty-btn ty-btn-call">
+      📞 Call Us Now: +91-80761-78189
+    </a>
+    <a href="https://wa.me/918076178189?text=Hi%2C%20I%20just%20submitted%20an%20enquiry%20for%20Godrej%20Crown%20Residences.%20Please%20share%20details."
+       target="_blank" class="ty-btn ty-btn-whatsapp">
+      💬 Continue on WhatsApp
+    </a>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <p class="video-label">Project Walkthrough</p>
+  <h2 class="video-title">See Godrej Crown Residences</h2>
+  <p class="video-subtitle">Watch our exclusive project video while our team prepares your callback</p>
+
+  <div class="video-wrapper">
+    <!--
+      ============================================================
+      TO ADD YOUR YOUTUBE VIDEO:
+      1. Go to your YouTube video
+      2. Click Share → Embed → Copy src URL
+         (looks like: https://www.youtube.com/embed/VIDEO_ID)
+      3. Replace the placeholder below with:
+         <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                 allow="autoplay; encrypted-media"
+                 allowfullscreen></iframe>
+      ============================================================
+    -->
+    <div class="video-placeholder" id="video-placeholder">
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div>
+        <strong>Project Video Coming Soon</strong>
+        <p>Add your YouTube video link here to showcase Godrej Crown Residences</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next-section">
+  <div class="next-inner">
+    <h2 class="next-title">⚡ What Happens Next?</h2>
+    <div class="next-steps">
+      <div class="next-step">
+        <div class="step-num">1</div>
+        <div class="step-title">📞 Advisor Calls You</div>
+        <p class="step-desc">Our property expert will call within 30 minutes with exclusive pre-launch pricing</p>
+      </div>
+      <div class="next-step">
+        <div class="step-num">2</div>
+        <div class="step-title">📋 Get Full Details</div>
+        <p class="step-desc">Receive floor plans, price list, payment plan & project brochure on WhatsApp</p>
+      </div>
+      <div class="next-step">
+        <div class="step-num">3</div>
+        <div class="step-title">🏠 Book Site Visit</div>
+        <p class="step-desc">Schedule a complimentary site visit at Godrej Crown Residences, Greater Noida</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE SECTION -->
+<section class="share-section">
+  <h3 class="share-title">Know someone looking for luxury homes?</h3>
+  <p class="share-sub">Share Godrej Crown Residences with your friends & family</p>
+  <div class="share-btns">
+    <a href="https://wa.me/?text=Check%20out%20Godrej%20Crown%20Residences%20-%20Luxury%203%20%26%204%20BHK%20Golf%20Residences%20in%20Greater%20Noida%21%20Starting%20%E2%82%B92.5%20Cr.%20Enquire%20now!"
+       target="_blank" class="share-btn">
+      💬 Share on WhatsApp
+    </a>
+    <a href="javascript:void(0)" onclick="copyLink()" class="share-btn" id="copy-btn">
+      🔗 Copy Page Link
+    </a>
+    <a href="index.html" class="share-btn">
+      🏠 Back to Website
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ty-footer">
+  <a href="index.html">← Back to Godrej Crown Residences</a>
+  <p>© 2025 Godrej Crown Residences · By Godrej Properties · Greater Noida<br>
+  Authorized Marketing Partner · All Rights Reserved<br>
+  📞 <a href="tel:+918076178189">+91-80761-78189</a> &nbsp;|&nbsp;
+  💬 <a href="https://wa.me/918076178189">WhatsApp Us</a></p>
+</footer>
+
+<script>
+  // ============================================================
+  // CONFETTI ANIMATION
+  // ============================================================
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#C9A84C', '#E2C277', '#FFFFFF', '#A8863A', '#FFD700'];
+  const pieces = [];
+  for (let i = 0; i < 120; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 3,
+      d: Math.random() * 80 + 20,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      tilt: Math.floor(Math.random() * 10) - 10,
+      tiltAngle: 0,
+      tiltAngleInc: Math.random() * 0.07 + 0.05,
+      opacity: Math.random() * 0.6 + 0.4
+    });
+  }
+
+  let angle = 0;
+  let frame = 0;
+  function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    angle += 0.01;
+    frame++;
+    pieces.forEach((p, i) => {
+      p.tiltAngle += p.tiltAngleInc;
+      p.y += (Math.cos(angle + p.d) + 2) * 1.2;
+      p.x += Math.sin(angle) * 1.5;
+      p.tilt = Math.sin(p.tiltAngle) * 12;
+      ctx.beginPath();
+      ctx.lineWidth = p.r;
+      ctx.strokeStyle = p.color;
+      ctx.globalAlpha = p.opacity;
+      ctx.moveTo(p.x + p.tilt + p.r / 4, p.y);
+      ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 4);
+      ctx.stroke();
+      if (p.y > canvas.height) {
+        if (frame < 250) {
+          p.x = Math.random() * canvas.width;
+          p.y = -10;
+        }
+      }
+    });
+    ctx.globalAlpha = 1;
+    if (frame < 350) requestAnimationFrame(drawConfetti);
+    else { ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.style.display = 'none'; }
+  }
+  drawConfetti();
+
+  // ============================================================
+  // COPY LINK
+  // ============================================================
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = '✅ Link Copied!';
+      setTimeout(() => { btn.textContent = '🔗 Copy Page Link'; }, 2000);
+    });
+  }
+
+  // ============================================================
+  // AUTO-COUNTDOWN (shows estimated callback time)
+  // ============================================================
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>

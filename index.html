@@ -1385,19 +1385,10 @@
       });
     } catch (e) {}
 
-    // Show success UI
-    if (formId === 'hero-form') {
-      document.querySelector('#hero-form').style.display = 'none';
-      document.querySelector('#form-success').style.display = 'block';
-    } else {
-      form.innerHTML = `
-        <div style="text-align:center;padding:24px 0;">
-          <div style="font-size:3rem;margin-bottom:10px;">✅</div>
-          <h3 style="color:var(--maroon);font-family:var(--font-display);margin-bottom:8px;">Thank You!</h3>
-          <p style="color:var(--gray-600);font-size:0.88rem;">Our team will call you within 30 minutes.<br>Check WhatsApp for project details.</p>
-          <a href="https://wa.me/918076178189" target="_blank" style="display:inline-block;margin-top:16px;background:#25D366;color:#fff;padding:12px 24px;border-radius:6px;font-weight:600;font-size:0.88rem;">💬 Continue on WhatsApp</a>
-        </div>`;
-    }
+    // Redirect to Thank You page
+    setTimeout(() => {
+      window.location.href = 'thankyou.html';
+    }, 600);
     closeModal();
   }
 
