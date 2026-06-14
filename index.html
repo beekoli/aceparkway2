@@ -660,30 +660,24 @@
         </div>
         <form id="hero-form" onsubmit="handleFormSubmit(event, 'hero-form')">
           <div class="form-group">
-            <label for="hero-name">Full Name *</label>
-            <input type="text" id="hero-name" name="name" placeholder="Your full name" required autocomplete="name">
+            <label for="hero-name">Your Name *</label>
+            <input type="text" id="hero-name" name="name" placeholder="Enter your full name" required autocomplete="name">
           </div>
           <div class="form-group">
             <label for="hero-phone">Mobile Number *</label>
             <input type="tel" id="hero-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
           </div>
-          <div class="form-group">
-            <label for="hero-email">Email Address</label>
-            <input type="email" id="hero-email" name="email" placeholder="your@email.com" autocomplete="email">
+          <span class="bhk-label" style="margin-bottom:8px;">Interested In</span>
+          <div class="bhk-chips" style="margin-bottom:14px;">
+            <div class="bhk-chip" onclick="selectChip(this,'3 BHK')">3 BHK</div>
+            <div class="bhk-chip" onclick="selectChip(this,'3 BHK + SR')">3 BHK + SR</div>
+            <div class="bhk-chip" onclick="selectChip(this,'4 BHK + SR')">4 BHK + SR</div>
           </div>
-          <div class="form-group">
-            <label for="hero-config">Interested In</label>
-            <select id="hero-config" name="config">
-              <option value="">Select Configuration</option>
-              <option value="3BHK">3 BHK (₹2.5 Cr Onwards)</option>
-              <option value="3BHK+SR">3 BHK + Servant Room</option>
-              <option value="4BHK+SR">4 BHK + Servant Room</option>
-            </select>
-          </div>
+          <input type="hidden" id="hero-config" name="config" value="Not Selected">
           <button type="submit" class="form-submit-btn" id="hero-submit-btn">
-            🏠 Request Callback Now
+            🏠 Get Pre-Launch Price Now
           </button>
-          <p class="form-disclaimer">By submitting, you agree to be contacted by our team. Your data is 100% secure & never shared.</p>
+          <p class="form-disclaimer">🔒 No spam. Your info is 100% safe with us.</p>
         </form>
       </div>
     </div>
@@ -1339,31 +1333,21 @@
         <p>Our team will connect with you within 30 minutes</p>
         <form onsubmit="handleFormSubmit(event, 'contact-form')">
           <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" name="name" placeholder="Your full name" required autocomplete="name">
+            <label>Your Name *</label>
+            <input type="text" name="name" placeholder="Enter your full name" required autocomplete="name">
           </div>
           <div class="form-group">
             <label>Mobile Number *</label>
             <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
           </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" name="email" placeholder="your@email.com" autocomplete="email">
+          <span class="bhk-label" style="color:var(--gray-600);margin-bottom:8px;">Interested In</span>
+          <div class="bhk-chips" style="margin-bottom:16px;">
+            <div class="bhk-chip" onclick="selectChip(this,'3 BHK')">3 BHK</div>
+            <div class="bhk-chip" onclick="selectChip(this,'3 BHK + SR')">3 BHK+SR</div>
+            <div class="bhk-chip" onclick="selectChip(this,'4 BHK + SR')">4 BHK+SR</div>
           </div>
-          <div class="form-group">
-            <label>Interested In</label>
-            <select name="config">
-              <option value="">Select Configuration</option>
-              <option value="3BHK">3 BHK (₹2.5 Cr+)</option>
-              <option value="3BHK+SR">3 BHK + Servant Room</option>
-              <option value="4BHK+SR">4 BHK + Servant Room</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <input type="text" name="message" placeholder="e.g. Interested in 3 BHK, want to book site visit">
-          </div>
-          <button type="submit" class="form-submit-btn">Send Enquiry</button>
+          <input type="hidden" name="config" value="Not Selected">
+          <button type="submit" class="form-submit-btn">🔓 Get Exclusive Details</button>
         </form>
       </div>
     </div>
