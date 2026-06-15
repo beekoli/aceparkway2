@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -164,9 +164,10 @@
 
     /* === TICKER === */
     #highlights-bar { background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%); padding: 14px 0; overflow: hidden; }
-    .ticker-wrapper { display: flex; align-items: center; }
-    .ticker-label { background: var(--gold); color: var(--maroon-dark); font-weight: 700; font-size: 0.8rem; padding: 6px 16px; letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; margin-right: 20px; }
-    .ticker-track { display: flex; gap: 0; animation: tickerScroll 35s linear infinite; white-space: nowrap; }
+    .ticker-wrapper { display: flex; align-items: center; overflow: hidden; }
+    .ticker-label { background: var(--gold); color: var(--maroon-dark); font-weight: 700; font-size: 0.8rem; padding: 6px 16px; letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; margin-right: 20px; position: relative; z-index: 2; }
+    .ticker-scroll-area { flex: 1; overflow: hidden; }
+    .ticker-track { display: flex; gap: 0; animation: tickerScroll 35s linear infinite; white-space: nowrap; width: max-content; }
     .ticker-item { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 500; padding-right: 50px; }
     .ticker-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
     @keyframes tickerScroll { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
@@ -690,7 +691,8 @@
 <div id="highlights-bar">
   <div class="container ticker-wrapper">
     <div class="ticker-label">Highlights</div>
-    <div class="ticker-track">
+    <div class="ticker-scroll-area">
+      <div class="ticker-track">
       <div class="ticker-item"><span class="ticker-dot"></span> 100-Acre Golf Ecosystem Township</div>
       <div class="ticker-item"><span class="ticker-dot"></span> Only 3 Exclusive Towers on 3.5 Acres</div>
       <div class="ticker-item"><span class="ticker-dot"></span> 50% Golf-Facing Units Available</div>
@@ -710,6 +712,7 @@
       <div class="ticker-item"><span class="ticker-dot"></span> Near Noida International Airport (Jewar)</div>
       <div class="ticker-item"><span class="ticker-dot"></span> East & West Facing Balconies</div>
       <div class="ticker-item"><span class="ticker-dot"></span> 80% Open & Green Spaces</div>
+    </div>
     </div>
   </div>
 </div>
