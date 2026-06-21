@@ -145,8 +145,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 .action-bar a.primary{ background:var(--gold); color:var(--forest-deep); }
 .action-bar a.primary svg{ color:var(--forest-deep); }
 @media (min-width:881px){
-  .action-bar{ display:none; }
-  body{ padding-bottom:0; }
+  .action-bar{ display:none !important; }
+  body{ padding-bottom:0 !important; }
 }
 
 /* ---------- grids / cards ---------- */
