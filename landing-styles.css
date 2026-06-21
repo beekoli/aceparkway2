@@ -2,16 +2,16 @@
    ACE PARKWAY 2.0 — Google Ads Landing Page
    ============================================================ */
 :root{
-  --forest-deep:   #b22128;
-  --forest:        #9b1d23;
-  --forest-soft:   #7d171b;
-  --ink:           #1A1812;
-  --gold:          #B8862E;
-  --gold-bright:   #D4A23A;
-  --gold-soft:     #E8C887;
-  --parchment:     #F6F1E4;
-  --stone:         #ECE4D2;
-  --stone-line:    #D9CDAC;
+  --forest-deep:   #0a0a0a;
+  --forest:        #1f1f1f;
+  --forest-soft:   #333333;
+  --ink:           #111111;
+  --gold:          #b22128;
+  --gold-bright:   #d82830;
+  --gold-soft:     #e88d92;
+  --parchment:     #ffffff;
+  --stone:         #f4f4f4;
+  --stone-line:    #e0e0e0;
   --white:         #FFFFFF;
   --green-ok:      #3C6B3F;
 
@@ -65,8 +65,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
   padding:14px 24px; font-weight:600; font-size:.92rem; border-radius:2px; border:1px solid transparent;
   transition:transform .15s ease, background .15s ease, border-color .15s ease; white-space:nowrap;
 }
-.btn-primary{ background:var(--gold); color:var(--forest-deep); }
-.btn-primary:hover{ background:var(--gold-bright); transform:translateY(-1px); }
+.btn-primary{ background:linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 100%); color:var(--white); box-shadow:0 4px 6px rgba(178,33,40,0.3), inset 0 1px 0 rgba(255,255,255,0.2); text-shadow:0 1px 2px rgba(0,0,0,0.2); border:1px solid #9c1b22; }
+.btn-primary:hover{ background:linear-gradient(180deg, #e33840 0%, var(--gold-bright) 100%); transform:translateY(-1px); box-shadow:0 6px 12px rgba(178,33,40,0.4), inset 0 1px 0 rgba(255,255,255,0.3); }
 .btn-dark{ background:var(--forest-deep); color:var(--parchment); }
 .btn-dark:hover{ background:var(--forest); transform:translateY(-1px); }
 .btn-ghost{ border-color:var(--stone-line); color:var(--forest-deep); background:transparent; }
@@ -82,7 +82,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 
 /* ---------- header ---------- */
 .topbar{ background:var(--forest-deep); color:var(--gold-soft); font-family:var(--font-mono); font-size:.74rem; padding:7px 0; text-align:center; letter-spacing:.04em; }
-.header{ position:sticky; top:0; z-index:60; background:rgba(178,33,40,.96); backdrop-filter:blur(6px); border-bottom:1px solid rgba(212,162,58,.25); }
+.header{ position:sticky; top:0; z-index:60; background:rgba(10,10,10,.96); backdrop-filter:blur(6px); border-bottom:1px solid rgba(212,162,58,.25); }
 .header .wrap{ display:flex; align-items:center; justify-content:space-between; height:70px; gap:18px; }
 .brand{ display:flex; flex-direction:column; line-height:1; color:var(--parchment); flex:none; }
 .brand small{ font-family:var(--font-mono); font-size:.58rem; letter-spacing:.18em; color:var(--gold-soft); margin-bottom:4px; }
@@ -98,8 +98,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 .hero{
   position:relative; background:#10271A url("images/ace-parkway-banner (1).webp") center center / cover no-repeat; color:var(--parchment);
 }
-.hero::before{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(180deg, rgba(82,15,18,.45) 0%, rgba(82,15,18,.55) 35%, rgba(61,11,13,.95) 100%); }
-.hero::after{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(100deg, rgba(61,11,13,.85) 0%, rgba(61,11,13,.5) 40%, rgba(61,11,13,.08) 68%); }
+.hero::before{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.6) 35%, rgba(0,0,0,.95) 100%); }
+.hero::after{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(100deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.5) 40%, rgba(0,0,0,.08) 68%); }
 .hero-grid{ position:relative; z-index:1; display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; padding:54px 0; }
 @media (max-width:960px){ .hero-grid{ grid-template-columns:1fr; padding:36px 0; } }
 .hero h1{ color:var(--white); font-size:clamp(2.4rem, 5vw, 3.6rem); line-height:1.05; margin-top:14px; }
@@ -143,8 +143,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 }
 .action-bar a:first-child{ border-left:0; }
 .action-bar svg{ width:19px; height:19px; color:var(--gold-bright); }
-.action-bar a.primary{ background:var(--gold); color:var(--forest-deep); }
-.action-bar a.primary svg{ color:var(--forest-deep); }
+.action-bar a.primary{ background:linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 100%); color:var(--white); box-shadow:inset 0 1px 0 rgba(255,255,255,0.2); text-shadow:0 1px 2px rgba(0,0,0,0.2); border-top:1px solid #9c1b22; }
+.action-bar a.primary svg{ color:var(--white); filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2)); }
 @media (min-width:881px){
   .action-bar{ display:none !important; }
   body{ padding-bottom:0 !important; }
@@ -227,7 +227,7 @@ footer .legal{ border-top:1px solid rgba(212,162,58,.18); padding-top:20px; marg
 footer .legal b{ color:#C9D6CB; }
 
 /* ---------- modal ---------- */
-.modal-overlay{ position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(61,11,13,.8); z-index:90; display:none; align-items:center; justify-content:center; padding:20px; }
+.modal-overlay{ position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(0,0,0,.8); z-index:90; display:none; align-items:center; justify-content:center; padding:20px; }
 .modal-overlay.is-open{ display:flex; }
 .modal-card{ position:relative; background:var(--white); max-width:420px; width:100%; padding:30px 26px; }
 .modal-close{ position:absolute; top:10px; right:10px; background:none; border:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center; color:var(--forest-deep); }
@@ -239,3 +239,4 @@ footer .legal b{ color:#C9D6CB; }
 .reveal{ animation:fade-up .6s ease both; }
 @keyframes fade-up{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
 @media (prefers-reduced-motion: reduce){ .reveal{ animation:none; } }
+
