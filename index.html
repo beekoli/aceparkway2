@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="landing-styles.css?v=10">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+<link rel="stylesheet" href="landing-styles.css?v=11">
 
 <!--
   GOOGLE TAG MANAGER / GOOGLE ADS CONVERSION TRACKING
@@ -81,10 +82,6 @@
             <option>4 BHK Large — ₹7.14 Cr* Onwards</option>
             <option>Not sure yet</option>
           </select>
-        </div>
-        <div class="consent">
-          <input type="checkbox" id="h-consent" required>
-          <label for="h-consent">I agree to be contacted by phone, SMS, email or WhatsApp about this project — this consent applies even if my number is on DND/NDNC. I understand ACE Parkway 2.0's RERA registration is in process and this site is for sharing information and gauging interest only; no booking, sale or allotment is being offered here.</label>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Get Pre-Launch Price</button>
       </form>
@@ -336,10 +333,6 @@
           <div class="field"><label for="v-name">Full name</label><input id="v-name" type="text" required placeholder="Your name"></div>
           <div class="field"><label for="v-phone">Phone number</label><input id="v-phone" type="tel" required placeholder="+91"></div>
           <div class="field"><label for="v-email">Email</label><input id="v-email" type="email" placeholder="you@example.com"></div>
-          <div class="consent">
-            <input type="checkbox" id="v-consent" required>
-            <label for="v-consent">I agree to be contacted by phone, SMS, email or WhatsApp about this project — this consent applies even if my number is on DND/NDNC. I understand ACE Parkway 2.0's RERA registration is in process and this site is for sharing information and gauging interest only; no booking, sale or allotment is being offered here.</label>
-          </div>
           <button type="submit" class="btn btn-primary btn-block">Schedule My Visit</button>
         </form>
         <div class="lead-success">Thank you — we'll be in touch shortly to confirm a time that works for you.</div>
@@ -396,16 +389,13 @@
     <form data-lead-form id="modal-form" style="margin-top:16px;">
       <div class="field"><label for="m-name">Full name</label><input id="m-name" type="text" required placeholder="Your name"></div>
       <div class="field"><label for="m-phone">Phone number</label><input id="m-phone" type="tel" required placeholder="+91"></div>
-      <div class="consent">
-        <input type="checkbox" id="m-consent" required>
-        <label for="m-consent">I agree to be contacted by phone, SMS, email or WhatsApp about this project — this consent applies even if my number is on DND/NDNC. I understand ACE Parkway 2.0's RERA registration is in process and this site is for sharing information and gauging interest only; no booking, sale or allotment is being offered here.</label>
-      </div>
       <button type="submit" class="btn btn-primary btn-block">Get Price List</button>
     </form>
     <div class="lead-success">Thank you — your interest has been registered. Our team will call you shortly.</div>
   </div>
 </div>
 
-<script src="landing-script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="landing-script.js"></script>
 </body>
 </html>

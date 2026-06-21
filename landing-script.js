@@ -2,13 +2,80 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ---- Lead forms (simple submit override) ----
+  // ---- Initialize Intl-Tel-Input ----
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
+  const itis = [];
+  phoneInputs.forEach(input => {
+    const iti = window.intlTelInput(input, {
+      initialCountry: "auto",
+      geoIpLookup: function(callback) {
+        fetch("https://ipapi.co/json")
+          .then(res => res.json())
+          .then(data => callback(data.country_code))
+          .catch(() => callback("in")); // fallback to India
+      },
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    itis.push({ input: input, iti: iti });
+  });
+
+  // ---- Google Sheets Web App URL ----
+  // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+  const GOOGLE_SHEETS_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+  // ---- Lead forms (Google Sheets Submission) ----
   const forms = document.querySelectorAll('[data-lead-form]');
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Redirect to the new dedicated thank you page
-      window.location.href = 'thankyou.html';
+      
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = 'Submitting...';
+      submitBtn.disabled = true;
+
+      // Collect data
+      const formData = new FormData(form);
+      const dataObj = {};
+      
+      // We grab all inputs within the form
+      const inputs = form.querySelectorAll('input, select');
+      inputs.forEach(input => {
+        if(input.id && input.id.includes('name')) dataObj.Name = input.value;
+        if(input.id && input.id.includes('email')) dataObj.Email = input.value;
+        if(input.id && input.id.includes('config')) dataObj.InterestedIn = input.value;
+        
+        // Use intlTelInput method to get the full formatted phone number
+        if(input.type === 'tel') {
+          const itiObj = itis.find(i => i.input === input);
+          if(itiObj) {
+            dataObj.Phone = itiObj.iti.getNumber();
+          } else {
+            dataObj.Phone = input.value;
+          }
+        }
+      });
+
+      // Prepare URL encoded string for Google Apps Script
+      const params = new URLSearchParams(dataObj);
+
+      fetch(GOOGLE_SHEETS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // standard way to bypass CORS for simple Sheets logging
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: params.toString()
+      })
+      .then(() => {
+        // Redirect to the new dedicated thank you page
+        window.location.href = 'thankyou.html';
+      })
+      .catch(err => {
+        console.error('Error!', err.message);
+        // Redirect even on error (often no-cors causes opaque response but still succeeds)
+        window.location.href = 'thankyou.html';
+      });
     });
   });
 
