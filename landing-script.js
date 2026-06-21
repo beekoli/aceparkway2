@@ -53,13 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        const params = new URLSearchParams(dataObj);
+        const realFormData = new FormData();
+        realFormData.append('Name', dataObj.Name || '');
+        realFormData.append('Email', dataObj.Email || '');
+        realFormData.append('Phone', dataObj.Phone || '');
+        realFormData.append('InterestedIn', dataObj.InterestedIn || '');
 
         fetch(GOOGLE_SHEETS_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: params.toString()
+          body: realFormData
         })
         .finally(() => {
           window.location.href = 'thankyou.html';
