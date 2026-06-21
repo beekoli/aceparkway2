@@ -28,54 +28,46 @@ document.addEventListener('DOMContentLoaded', () => {
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerText;
-      submitBtn.innerText = 'Submitting...';
-      submitBtn.disabled = true;
-
-      // Collect data
-      const formData = new FormData(form);
-      const dataObj = {};
-      
-      // We grab all inputs within the form
-      const inputs = form.querySelectorAll('input, select');
-      inputs.forEach(input => {
-        if(input.id && input.id.includes('name')) dataObj.Name = input.value;
-        if(input.id && input.id.includes('email')) dataObj.Email = input.value;
-        if(input.id && input.id.includes('config')) dataObj.InterestedIn = input.value;
-        
-        // Use intlTelInput method to get the full formatted phone number
-        if(input.type === 'tel') {
-          const itiObj = itis.find(i => i.input === input);
-          if(itiObj) {
-            dataObj.Phone = itiObj.iti.getNumber();
-          } else {
-            dataObj.Phone = input.value;
-          }
+      try {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if(submitBtn) {
+          submitBtn.innerText = 'Submitting...';
+          submitBtn.disabled = true;
         }
-      });
 
-      // Prepare URL encoded string for Google Apps Script
-      const params = new URLSearchParams(dataObj);
+        // Collect data
+        const dataObj = {};
+        const inputs = form.querySelectorAll('input, select');
+        inputs.forEach(input => {
+          if(input.id && input.id.includes('name')) dataObj.Name = input.value;
+          if(input.id && input.id.includes('email')) dataObj.Email = input.value;
+          if(input.id && input.id.includes('config')) dataObj.InterestedIn = input.value;
+          
+          if(input.type === 'tel') {
+            try {
+              const itiObj = itis.find(i => i.input === input);
+              dataObj.Phone = (itiObj && typeof itiObj.iti.getNumber === 'function') ? itiObj.iti.getNumber() : input.value;
+            } catch(e) {
+              dataObj.Phone = input.value;
+            }
+          }
+        });
 
-      fetch(GOOGLE_SHEETS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', // standard way to bypass CORS for simple Sheets logging
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: params.toString()
-      })
-      .then(() => {
-        // Redirect to the new dedicated thank you page
+        const params = new URLSearchParams(dataObj);
+
+        fetch(GOOGLE_SHEETS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString()
+        })
+        .finally(() => {
+          window.location.href = 'thankyou.html';
+        });
+      } catch(err) {
+        console.error(err);
         window.location.href = 'thankyou.html';
-      })
-      .catch(err => {
-        console.error('Error!', err.message);
-        // Redirect even on error (often no-cors causes opaque response but still succeeds)
-        window.location.href = 'thankyou.html';
-      });
+      }
     });
   });
 
