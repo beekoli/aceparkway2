@@ -133,7 +133,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 .action-bar{
   position:fixed; left:0; right:0; bottom:0; z-index:70;
   background:var(--forest-deep); border-top:1px solid rgba(212,162,58,.3);
-  display:grid; grid-template-columns:repeat(4,1fr);
+  display:grid; grid-template-columns:repeat(2,1fr);
 }
 .action-bar a{
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;
