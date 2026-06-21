@@ -96,7 +96,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 
 /* ---------- hero ---------- */
 .hero{
-  position:relative; background:#10271A url("assets/tower-crop.jpg") center 78% / cover no-repeat; color:var(--parchment);
+  position:relative; background:#10271A url("images/ace-parkway-banner (1).webp") center center / cover no-repeat; color:var(--parchment);
 }
 .hero::before{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(180deg, rgba(10,24,16,.45) 0%, rgba(10,24,16,.55) 35%, rgba(9,20,13,.95) 100%); }
 .hero::after{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(100deg, rgba(8,20,13,.85) 0%, rgba(8,20,13,.5) 40%, rgba(8,20,13,.08) 68%); }
