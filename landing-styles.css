@@ -144,6 +144,10 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 .action-bar svg{ width:19px; height:19px; color:var(--gold-bright); }
 .action-bar a.primary{ background:var(--gold); color:var(--forest-deep); }
 .action-bar a.primary svg{ color:var(--forest-deep); }
+@media (min-width:881px){
+  .action-bar{ display:none; }
+  body{ padding-bottom:0; }
+}
 
 /* ---------- grids / cards ---------- */
 .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
