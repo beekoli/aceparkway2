@@ -2,17 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ---- Lead forms: front-end only placeholder ----
-  // Replace each handler's logic with a real POST to your CRM / Google Sheet /
-  // Google Ads conversion endpoint. Each form fires a simple success state.
-  document.querySelectorAll('form[data-lead-form]').forEach(form => {
+  // ---- Lead forms (simple submit override) ----
+  const forms = document.querySelectorAll('[data-lead-form]');
+  forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      form.classList.add('is-hidden');
-      const success = form.parentElement.querySelector('.lead-success');
-      if (success) success.classList.add('is-visible');
-      // TODO: fire Google Ads conversion event here, e.g.
-      // gtag('event', 'conversion', { send_to: '[GTM/ADS_CONVERSION_ID]' });
+      // Redirect to the new dedicated thank you page
+      window.location.href = 'thankyou.html';
     });
   });
 
