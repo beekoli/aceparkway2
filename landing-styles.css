@@ -2,9 +2,9 @@
    ACE PARKWAY 2.0 — Google Ads Landing Page
    ============================================================ */
 :root{
-  --forest-deep:   #0D2417;
-  --forest:        #15321F;
-  --forest-soft:   #1E4029;
+  --forest-deep:   #b22128;
+  --forest:        #9b1d23;
+  --forest-soft:   #7d171b;
   --ink:           #1A1812;
   --gold:          #B8862E;
   --gold-bright:   #D4A23A;
@@ -82,7 +82,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 
 /* ---------- header ---------- */
 .topbar{ background:var(--forest-deep); color:var(--gold-soft); font-family:var(--font-mono); font-size:.74rem; padding:7px 0; text-align:center; letter-spacing:.04em; }
-.header{ position:sticky; top:0; z-index:60; background:rgba(13,36,23,.96); backdrop-filter:blur(6px); border-bottom:1px solid rgba(212,162,58,.25); }
+.header{ position:sticky; top:0; z-index:60; background:rgba(178,33,40,.96); backdrop-filter:blur(6px); border-bottom:1px solid rgba(212,162,58,.25); }
 .header .wrap{ display:flex; align-items:center; justify-content:space-between; height:70px; gap:18px; }
 .brand{ display:flex; flex-direction:column; line-height:1; color:var(--parchment); flex:none; }
 .brand small{ font-family:var(--font-mono); font-size:.58rem; letter-spacing:.18em; color:var(--gold-soft); margin-bottom:4px; }
@@ -98,8 +98,8 @@ h1,h2,h3,h4{ font-family:var(--font-display); color:var(--forest-deep); margin:0
 .hero{
   position:relative; background:#10271A url("images/ace-parkway-banner (1).webp") center center / cover no-repeat; color:var(--parchment);
 }
-.hero::before{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(180deg, rgba(10,24,16,.45) 0%, rgba(10,24,16,.55) 35%, rgba(9,20,13,.95) 100%); }
-.hero::after{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(100deg, rgba(8,20,13,.85) 0%, rgba(8,20,13,.5) 40%, rgba(8,20,13,.08) 68%); }
+.hero::before{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(180deg, rgba(82,15,18,.45) 0%, rgba(82,15,18,.55) 35%, rgba(61,11,13,.95) 100%); }
+.hero::after{ content:""; position:absolute; top:0; right:0; bottom:0; left:0; background:linear-gradient(100deg, rgba(61,11,13,.85) 0%, rgba(61,11,13,.5) 40%, rgba(61,11,13,.08) 68%); }
 .hero-grid{ position:relative; z-index:1; display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; padding:54px 0; }
 @media (max-width:960px){ .hero-grid{ grid-template-columns:1fr; padding:36px 0; } }
 .hero h1{ color:var(--white); font-size:clamp(2.4rem, 5vw, 3.6rem); line-height:1.05; margin-top:14px; }
@@ -227,7 +227,7 @@ footer .legal{ border-top:1px solid rgba(212,162,58,.18); padding-top:20px; marg
 footer .legal b{ color:#C9D6CB; }
 
 /* ---------- modal ---------- */
-.modal-overlay{ position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(10,20,13,.7); z-index:90; display:none; align-items:center; justify-content:center; padding:20px; }
+.modal-overlay{ position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(61,11,13,.8); z-index:90; display:none; align-items:center; justify-content:center; padding:20px; }
 .modal-overlay.is-open{ display:flex; }
 .modal-card{ position:relative; background:var(--white); max-width:420px; width:100%; padding:30px 26px; }
 .modal-close{ position:absolute; top:10px; right:10px; background:none; border:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center; color:var(--forest-deep); }
