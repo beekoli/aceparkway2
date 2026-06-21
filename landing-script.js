@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Google Sheets Web App URL ----
   // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
-  const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyooPUSNsSVd4N7ORzQSiqh_IqbF2sG_MjLD_pAG6xSbwz_YP_cqHNa_bx6QSPRXFOc/exec';
+  const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRSZ5ZLKdOSDl6W7WqX-pqI0ZM8dtW7uZLEssgm3DLevvMmiTzBymQcJSJj21DmIQp/exec';
 
   // ---- Lead forms (Google Sheets Submission) ----
   const forms = document.querySelectorAll('[data-lead-form]');
