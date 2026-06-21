@@ -23,14 +23,14 @@
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; overflow-x:hidden; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
   *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
 }
 body{
   margin:0; font-family:var(--font-body); color:var(--ink); background:var(--parchment);
-  -webkit-font-smoothing:antialiased; line-height:1.5;
+  -webkit-font-smoothing:antialiased; line-height:1.5; overflow-x:hidden; width:100%;
   padding-bottom:64px; /* room for fixed action bar */
 }
 body.modal-open{ overflow:hidden; }
