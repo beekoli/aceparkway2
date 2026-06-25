@@ -3089,7 +3089,7 @@ function submitLeadForm(btn) {
       if(ident.indexOf('countrycode') !== -1) dataObj.CountryCode = input.value;
     }
     
-    var fullPhone = (dataObj.CountryCode ? dataObj.CountryCode + ' ' : '') + (dataObj.Phone || '');
+    var fullPhone = "'" + (dataObj.CountryCode ? dataObj.CountryCode + ' ' : '') + (dataObj.Phone || '');
     
     var iframeName = 'hidden_iframe_' + Math.random().toString(36).substring(7);
     var iframe = document.createElement('iframe');
