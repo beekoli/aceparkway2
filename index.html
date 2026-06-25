@@ -1695,39 +1695,51 @@
     "@type": "Product",
     "name": "ACE Parkway 2.0 — Luxury Apartments Sector 150 Noida",
     "description": "Pre-launch luxury 3 BHK & 4 BHK residences by ACE Group at Sector 150 Noida. 15 acres, 11 towers (G+21 to G+25), 1 lakh sq ft clubhouse. Prices from ₹3.23 Cr*.",
+    "image": [
+      "https://aceparkway150.propertysaraansh.in/hero.webp"
+    ],
+    "sku": "ACE-PARKWAY-2.0",
+    "mpn": "ACE-PARKWAY-SEC150",
     "brand": {
       "@type": "Brand",
       "name": "ACE Group"
     },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "3 BHK — 1,900 sq ft",
-        "price": "32300000",
-        "priceCurrency": "INR",
-        "description": "3 BHK apartment, 1,900 sq ft at pre-launch BSP ₹16,995/sq ft",
-        "availability": "https://schema.org/PreOrder",
-        "url": "https://acegroupnewlaunch.in/"
-      },
-      {
-        "@type": "Offer",
-        "name": "4 BHK — 2,600 sq ft",
-        "price": "44200000",
-        "priceCurrency": "INR",
-        "description": "4 BHK apartment, 2,600 sq ft at pre-launch BSP ₹16,995/sq ft",
-        "availability": "https://schema.org/PreOrder",
-        "url": "https://acegroupnewlaunch.in/"
-      },
-      {
-        "@type": "Offer",
-        "name": "4 BHK Large — 4,200 sq ft",
-        "price": "71400000",
-        "priceCurrency": "INR",
-        "description": "4 BHK Large apartment, 4,200 sq ft at pre-launch BSP ₹16,995/sq ft",
-        "availability": "https://schema.org/PreOrder",
-        "url": "https://acegroupnewlaunch.in/"
-      }
-    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "INR",
+      "lowPrice": "32300000",
+      "highPrice": "71400000",
+      "offerCount": "3",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "3 BHK — 1,900 sq ft",
+          "price": "32300000",
+          "priceCurrency": "INR",
+          "description": "3 BHK apartment, 1,900 sq ft at pre-launch BSP ₹16,995/sq ft",
+          "availability": "https://schema.org/PreOrder",
+          "url": "https://aceparkway150.propertysaraansh.in/"
+        },
+        {
+          "@type": "Offer",
+          "name": "4 BHK — 2,600 sq ft",
+          "price": "44200000",
+          "priceCurrency": "INR",
+          "description": "4 BHK apartment, 2,600 sq ft at pre-launch BSP ₹16,995/sq ft",
+          "availability": "https://schema.org/PreOrder",
+          "url": "https://aceparkway150.propertysaraansh.in/"
+        },
+        {
+          "@type": "Offer",
+          "name": "4 BHK Large — 4,200 sq ft",
+          "price": "71400000",
+          "priceCurrency": "INR",
+          "description": "4 BHK Large apartment, 4,200 sq ft at pre-launch BSP ₹16,995/sq ft",
+          "availability": "https://schema.org/PreOrder",
+          "url": "https://aceparkway150.propertysaraansh.in/"
+        }
+      ]
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
