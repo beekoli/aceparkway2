@@ -1809,6 +1809,7 @@
   }
   </script>
   <!-- ===== End Schema Markup ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1923,7 +1924,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-sub">Register & save up to ₹2.10 Cr* on pre-launch pricing</div>
 
         <div id="heroFormWrapper">
-          <form action="thankyou.html" method="POST" id="heroForm" onsubmit="handleSubmit(event, 'heroForm')">
+          <form data-lead-form action="thankyou.html" method="POST" id="heroForm" >
             <div class="form-row">
               <label>Full Name *</label>
               <input type="text" name="name" placeholder="Enter your full name" required />
@@ -2759,7 +2760,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="form-head-tag" id="modalTag">Enquire Now</div>
       <div class="form-title" id="modalTitle">Get Exclusive Pre-Launch Details</div>
       <div class="form-sub" id="modalSub">Fill in your details and our expert will contact you immediately</div>
-      <form action="thankyou.html" method="POST" id="modalForm" onsubmit="handleSubmit(event, 'modalForm')">
+      <form data-lead-form action="thankyou.html" method="POST" id="modalForm" >
         <div class="form-row">
           <label>Full Name *</label>
           <input type="text" name="name" placeholder="Your full name" required />
@@ -3066,5 +3067,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 </script>
+
+    <!-- Google Sheets & intl-tel-input Integration -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="landing-script.js"></script>
 </body>
 </html>
