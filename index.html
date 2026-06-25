@@ -3091,25 +3091,39 @@ function submitLeadForm(btn) {
     
     var fullPhone = (dataObj.CountryCode ? dataObj.CountryCode + ' ' : '') + (dataObj.Phone || '');
     
-    var urlEncodedData = new URLSearchParams();
-    urlEncodedData.append('Name', dataObj.Name || '');
-    urlEncodedData.append('Email', dataObj.Email || '');
-    urlEncodedData.append('Phone', fullPhone);
-    urlEncodedData.append('InterestedIn', dataObj.InterestedIn || '');
-    urlEncodedData.append('project', 'ACE Parkway 2.0');
+    var iframeName = 'hidden_iframe_' + Math.random().toString(36).substring(7);
+    var iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
     
-    fetch('https://script.google.com/macros/s/AKfycbweG_zfUj7N0u2HNEPQdMTikn1pc4exD977Otk6gVzNejsQQ0KphMsCeonGdvlU-8X-/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: urlEncodedData
-    }).then(function() {
+    var hiddenForm = document.createElement('form');
+    hiddenForm.action = 'https://script.google.com/macros/s/AKfycbweG_zfUj7N0u2HNEPQdMTikn1pc4exD977Otk6gVzNejsQQ0KphMsCeonGdvlU-8X-/exec';
+    hiddenForm.method = 'POST';
+    hiddenForm.target = iframeName;
+    
+    var params = {
+      'Name': dataObj.Name || '',
+      'Email': dataObj.Email || '',
+      'Phone': fullPhone,
+      'InterestedIn': dataObj.InterestedIn || '',
+      'project': 'ACE Parkway 2.0'
+    };
+    
+    for (var key in params) {
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = params[key];
+      hiddenForm.appendChild(input);
+    }
+    
+    document.body.appendChild(hiddenForm);
+    hiddenForm.submit();
+    
+    setTimeout(function() {
       window.location.href = 'thankyou.html';
-    }).catch(function(e) {
-      window.location.href = 'thankyou.html';
-    });
+    }, 1500);
   } catch(e) {
     alert('Error: ' + e.message);
     window.location.href = 'thankyou.html';
