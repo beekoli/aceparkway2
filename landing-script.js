@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const submitBtn = form.querySelector('button[type="submit"]');
         if(submitBtn) {
           submitBtn.innerText = 'Submitting...';
-          submitBtn.disabled = true;
         }
 
         // Collect data
@@ -27,13 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
           if(ident.includes('email')) dataObj.Email = input.value;
           if(ident.includes('config') || ident.includes('interest')) dataObj.InterestedIn = input.value;
           
-          if(input.type === 'tel') {
-            try {
-              const itiObj = itis.find(i => i.input === input);
-              dataObj.Phone = (itiObj && typeof itiObj.iti.getNumber === 'function') ? itiObj.iti.getNumber() : input.value;
-            } catch(e) {
-              dataObj.Phone = input.value;
-            }
+          if(ident.includes('phone') || input.type === 'tel') {
+            dataObj.Phone = input.value;
+          }
+          if(ident.includes('countrycode')) {
+            dataObj.CountryCode = input.value;
           }
         });
 
