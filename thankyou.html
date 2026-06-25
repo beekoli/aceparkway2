@@ -16,89 +16,117 @@
 
   <style>
     /* Specific Thank You Page Styles */
+    body {
+      background: #000;
+      color: #fff;
+    }
+    .ty-wrapper {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.95)), url('hero.webp') no-repeat center center/cover;
+    }
+    
     .ty-hero {
-      min-height: 80vh;
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
-      position: relative;
     }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 60px 40px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
 
     /* Animated checkmark */
     .check-circle {
-      width: 90px;
-      height: 90px;
-      background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 100%);
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #C8001A 0%, #7a0010 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 30px;
-      box-shadow: 0 10px 20px rgba(178,33,40,0.3);
-      animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(200, 0, 26, 0.4);
+      animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s forwards;
+      transform: scale(0); opacity: 0;
     }
-    @keyframes popIn {
-      from { transform: scale(0); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
+    @keyframes popIn { to { transform: scale(1); opacity: 1; } }
+    
     .check-circle svg {
-      width: 44px; height: 44px;
+      width: 50px; height: 50px;
       fill: none;
-      stroke: var(--white);
+      stroke: #ffffff;
       stroke-width: 3;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: 60;
-      stroke-dashoffset: 60;
-      animation: drawCheck 0.5s ease 0.4s forwards;
+      stroke-dasharray: 80;
+      stroke-dashoffset: 80;
+      animation: drawCheck 0.6s ease 0.6s forwards;
     }
     @keyframes drawCheck { to { stroke-dashoffset: 0; } }
 
     .ty-title {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-size: clamp(2.5rem, 6vw, 3.8rem);
       margin-bottom: 16px;
-      color: var(--ink);
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
     
     .ty-subtitle {
-      font-size: 1.1rem;
-      color: #555;
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.7);
       max-width: 500px;
-      margin: 0 auto 32px;
+      margin: 0 auto 40px;
       line-height: 1.6;
     }
 
     .callback-badge {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: var(--stone);
-      border: 1px solid var(--stone-line);
-      padding: 16px 24px;
-      border-radius: 4px;
-      margin-bottom: 36px;
+      gap: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 28px;
+      border-radius: 12px;
+      margin-bottom: 40px;
       text-align: left;
     }
     
     .callback-badge svg {
-      width: 28px;
-      height: 28px;
-      color: var(--gold);
+      width: 32px;
+      height: 32px;
+      color: #C8001A;
     }
     
     .callback-text strong {
       display: block;
-      color: var(--ink);
+      color: #ffffff;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     
     .callback-text span {
-      font-size: 0.85rem;
-      color: #666;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
     }
 
     .ty-actions {
@@ -106,6 +134,37 @@
       gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-primary {
+      background: #C8001A;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #e6001e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(200, 0, 26, 0.3);
+    }
+    
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -128,9 +187,10 @@
   </header>
 
   <!-- MAIN -->
+  <div class="ty-wrapper">
   <div class="ty-hero">
     <div class="wrap">
-      
+      <div class="glass-card">
       <div class="check-circle">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
       </div>
@@ -154,8 +214,7 @@
         <a href="index.html" class="btn btn-ghost">
           Return to Homepage
         </a>
-      </div>
-
+            </div>
     </div>
   </div>
 
