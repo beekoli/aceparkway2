@@ -3114,22 +3114,24 @@ function submitLeadForm(btn) {
 
 // Modal logic
 function openModal() {
-  var overlay = document.getElementById('lead-modal');
-  if (overlay) overlay.classList.add('is-open');
+  var overlay = document.getElementById('modalOverlay');
+  if (overlay) overlay.classList.add('active');
   document.body.classList.add('modal-open');
 }
 function closeModal() {
-  var overlay = document.getElementById('lead-modal');
-  if (overlay) overlay.classList.remove('is-open');
+  var overlay = document.getElementById('modalOverlay');
+  if (overlay) overlay.classList.remove('active');
   document.body.classList.remove('modal-open');
+}
+function closeModalOnBg(e) {
+  if(e.target.id === 'modalOverlay') closeModal();
 }
 document.querySelectorAll('[data-open-modal]').forEach(function(b) {
   b.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
 });
 var cb = document.querySelector('.modal-close');
 if(cb) cb.addEventListener('click', closeModal);
-var ov = document.getElementById('lead-modal');
-if(ov) ov.addEventListener('click', function(e) { if(e.target===ov) closeModal(); });
+
 
 // Location tabs
 var tabs = document.querySelectorAll('.loc-tab');
