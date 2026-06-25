@@ -39,9 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const dataObj = {};
         const inputs = form.querySelectorAll('input, select');
         inputs.forEach(input => {
-          if(input.id && input.id.includes('name')) dataObj.Name = input.value;
-          if(input.id && input.id.includes('email')) dataObj.Email = input.value;
-          if(input.id && input.id.includes('config')) dataObj.InterestedIn = input.value;
+          const ident = (input.name || input.id || '').toLowerCase();
+          if(ident.includes('name')) dataObj.Name = input.value;
+          if(ident.includes('email')) dataObj.Email = input.value;
+          if(ident.includes('config') || ident.includes('interest')) dataObj.InterestedIn = input.value;
           
           if(input.type === 'tel') {
             try {
