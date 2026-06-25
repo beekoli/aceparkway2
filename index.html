@@ -1959,7 +1959,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <option value="All Options">Show All Options</option>
               </select>
             </div>
-            <button type="submit" class="form-submit">GET PRE-LAUNCH DETAILS</button>
+            <button type="button" class="form-submit" onclick="submitLeadForm(this)">GET PRE-LAUNCH DETAILS</button>
             <input type="hidden" name="project" value="ACE Parkway 2.0" />
           </form>
           <div class="form-disclaimer">By submitting you consent to receiving calls/WhatsApp from our team. Data is shared only with RERA-authorized agents.</div>
@@ -2794,7 +2794,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option value="All">All Options</option>
           </select>
         </div>
-        <button type="submit" class="form-submit">🔥 Get Pre-Launch Price Now</button>
+        <button type="button" class="form-submit" onclick="submitLeadForm(this)">🔥 Get Pre-Launch Price Now</button>
         <input type="hidden" name="project" value="ACE Parkway 2.0" />
         <input type="hidden" name="source" value="Modal" />
       </form>
@@ -3068,6 +3068,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
     <!-- Google Sheets & intl-tel-input Integration -->
-        <script src="landing-script-v2.js?v=1782410923966"></script>
+        
+
+<script>
+function submitLeadForm(btn) {
+  try {
+    btn.innerText = 'Submitting...';
+    btn.disabled = true;
+    
+    var form = btn.closest('form');
+    var dataObj = {};
+    var inputs = form.querySelectorAll('input, select');
+    for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      var ident = (input.name || input.id || '').toLowerCase();
+      if(ident.indexOf('name') !== -1) dataObj.Name = input.value;
+      if(ident.indexOf('email') !== -1) dataObj.Email = input.value;
+      if(ident.indexOf('config') !== -1 || ident.indexOf('interest') !== -1) dataObj.InterestedIn = input.value;
+      if(ident.indexOf('phone') !== -1 || input.type === 'tel') dataObj.Phone = input.value;
+      if(ident.indexOf('countrycode') !== -1) dataObj.CountryCode = input.value;
+    }
+    
+    var realFormData = new FormData();
+    realFormData.append('Name', dataObj.Name || '');
+    realFormData.append('Email', dataObj.Email || '');
+    var fullPhone = (dataObj.CountryCode ? dataObj.CountryCode + ' ' : '') + (dataObj.Phone || '');
+    realFormData.append('Phone', fullPhone);
+    realFormData.append('InterestedIn', dataObj.InterestedIn || '');
+    realFormData.append('project', 'ACE Parkway 2.0');
+    
+    fetch('https://script.google.com/macros/s/AKfycbyRSZ5ZLKdOSDl6W7WqX-pqI0ZM8dtW7uZLEssgm3DLevvMmiTzBymQcJSJj21DmIQp/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: realFormData
+    }).finally(function() {
+      window.location.href = 'thankyou.html';
+    });
+  } catch(e) {
+    alert('Error: ' + e.message);
+    window.location.href = 'thankyou.html';
+  }
+}
+
+// Modal logic
+function openModal() {
+  var overlay = document.getElementById('lead-modal');
+  if (overlay) overlay.classList.add('is-open');
+  document.body.classList.add('modal-open');
+}
+function closeModal() {
+  var overlay = document.getElementById('lead-modal');
+  if (overlay) overlay.classList.remove('is-open');
+  document.body.classList.remove('modal-open');
+}
+document.querySelectorAll('[data-open-modal]').forEach(function(b) {
+  b.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
+});
+var cb = document.querySelector('.modal-close');
+if(cb) cb.addEventListener('click', closeModal);
+var ov = document.getElementById('lead-modal');
+if(ov) ov.addEventListener('click', function(e) { if(e.target===ov) closeModal(); });
+
+// Location tabs
+var tabs = document.querySelectorAll('.loc-tab');
+var panels = document.querySelectorAll('.loc-panel');
+if (tabs.length && panels.length) {
+  panels.forEach(function(p, i) { if (i > 0) p.classList.add('is-hidden'); });
+  tabs.forEach(function(tab, i) {
+    if (i === 0) tab.classList.add('is-active');
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('is-active'); });
+      panels.forEach(function(p) { p.classList.add('is-hidden'); });
+      tab.classList.add('is-active');
+      panels[i].classList.remove('is-hidden');
+    });
+  });
+}
+</script>
+
 </body>
 </html>
