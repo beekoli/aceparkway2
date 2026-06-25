@@ -3089,23 +3089,27 @@ function submitLeadForm(btn) {
       if(ident.indexOf('countrycode') !== -1) dataObj.CountryCode = input.value;
     }
     
-    var realFormData = new FormData();
-    realFormData.append('Name', dataObj.Name || '');
-    realFormData.append('Email', dataObj.Email || '');
     var fullPhone = (dataObj.CountryCode ? dataObj.CountryCode + ' ' : '') + (dataObj.Phone || '');
-    realFormData.append('Phone', fullPhone);
-    realFormData.append('InterestedIn', dataObj.InterestedIn || '');
-    realFormData.append('project', 'ACE Parkway 2.0');
+    
+    var urlEncodedData = new URLSearchParams();
+    urlEncodedData.append('Name', dataObj.Name || '');
+    urlEncodedData.append('Email', dataObj.Email || '');
+    urlEncodedData.append('Phone', fullPhone);
+    urlEncodedData.append('InterestedIn', dataObj.InterestedIn || '');
+    urlEncodedData.append('project', 'ACE Parkway 2.0');
     
     fetch('https://script.google.com/macros/s/AKfycbweG_zfUj7N0u2HNEPQdMTikn1pc4exD977Otk6gVzNejsQQ0KphMsCeonGdvlU-8X-/exec', {
       method: 'POST',
       mode: 'no-cors',
-      keepalive: true,
-      body: realFormData
-    });
-    setTimeout(function() {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: urlEncodedData
+    }).then(function() {
       window.location.href = 'thankyou.html';
-    }, 150);
+    }).catch(function(e) {
+      window.location.href = 'thankyou.html';
+    });
   } catch(e) {
     alert('Error: ' + e.message);
     window.location.href = 'thankyou.html';
