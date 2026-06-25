@@ -166,6 +166,54 @@
       background: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
     }
+
+    .video-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      margin-top: 30px;
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+      transform: translateY(30px);
+      opacity: 0;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .video-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+    .video-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -215,6 +263,24 @@
           Return to Homepage
         </a>
             </div>
+      </div>
+
+
+      <!-- YOUTUBE VIDEO SECTION -->
+      <div class="video-card">
+        <h2 class="video-title">Watch Our Detailed Project Review</h2>
+        <p class="video-desc">Take an exclusive virtual tour of ACE Parkway Noida Sector 150 to explore its ultra-luxury amenities, construction quality, and lifestyle.</p>
+        <div class="video-wrapper">
+          <!-- Easily replace R9K1G95b5C4 with any YouTube video ID -->
+          <iframe 
+            src="https://www.youtube.com/embed/R9K1G95b5C4?rel=0" 
+            title="ACE Parkway Noida Sector 150 Review"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
     </div>
   </div>
 
