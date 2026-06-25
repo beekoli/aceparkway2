@@ -2,23 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ---- Initialize Intl-Tel-Input ----
-  const phoneInputs = document.querySelectorAll('input[type="tel"]');
-  const itis = [];
-  phoneInputs.forEach(input => {
-    const iti = window.intlTelInput(input, {
-      initialCountry: "auto",
-      geoIpLookup: function(callback) {
-        fetch("https://ipapi.co/json")
-          .then(res => res.json())
-          .then(data => callback(data.country_code))
-          .catch(() => callback("in")); // fallback to India
-      },
-      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-    });
-    itis.push({ input: input, iti: iti });
-  });
-
   // ---- Google Sheets Web App URL ----
   // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
   const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRSZ5ZLKdOSDl6W7WqX-pqI0ZM8dtW7uZLEssgm3DLevvMmiTzBymQcJSJj21DmIQp/exec';
@@ -57,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const realFormData = new FormData();
         realFormData.append('Name', dataObj.Name || '');
         realFormData.append('Email', dataObj.Email || '');
-        realFormData.append('Phone', dataObj.Phone || '');
+        const fullPhone = (dataObj.CountryCode ? dataObj.CountryCode + ' ' : '') + (dataObj.Phone || '');
+        realFormData.append('Phone', fullPhone);
         realFormData.append('InterestedIn', dataObj.InterestedIn || '');
 
         fetch(GOOGLE_SHEETS_SCRIPT_URL, {
